@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [[ ! -e "/usr/bin/xmlwf" ]] ; then
+  apt-get install -y expat
+else
+  echo "Expat installed, nothing to do here."
+fi
+
+if [[ ! -d "/usr/include/minizip" ]] ; then
+  apt-get install -y libminizip-dev
+else
+  echo "Minizip installed, nothing to do here."
+fi
+
+if [[ ! -e "/usr/local/bin/xlsxio_xlsx2csv" ]] ; then
+  cd
+  git clone "https://github.com/brechtsanders/xlsxio.git"
+  cd xlsxio
+  make && make install
+else
+  echo "Xlsxio installed, nothing to do here."
+fi
