@@ -4,9 +4,6 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-echo "-----> BUILD_DIR: ${BUILD_DIR}"
-echo "-----> CACHE_DIR: ${CACHE_DIR}"
-
 if [[ ! -e "/app/xlsxio/xlsxio_xlsx2csv" ]] ; then
   echo "-----> XLSXIO not installed."
   if [[ ! -d "${CACHE_DIR}/xlsxio/" ]] ; then
