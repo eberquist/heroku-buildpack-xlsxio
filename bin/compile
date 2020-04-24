@@ -5,10 +5,17 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 if [[ ! -e "/app/xlsxio/xlsxio_xlsx2csv" ]] ; then
-  cd $BUILD_DIR
-  git clone "https://github.com/brechtsanders/xlsxio.git"
-  cd xlsxio
-  make
+  echo "-----> XLSXIO not installed."
+  if [[ ! -d "${CACHE_DIR}/xlsxio/" ]] ; then
+    echo "-----> XLSXIO not found in cache. Installing."
+    cd $CACHE_DIR
+    git clone "https://github.com/brechtsanders/xlsxio.git"
+    cd xlsxio
+    make
+  fi
+  echo "-----> Copying XLSXIO to build directory."
+  mkdir "${BUILD_DIR}/app/xlsxio/"
+  cp "${CACHE_DIR}/xlsxio/xlsxio_xlsx2csv" "{$BUILD_DIR}/xlsxio/"
 else
-  echo "Xlsxio installed, nothing to do here."
+  echo "-----> XLSXIO installed, nothing to do here."
 fi
