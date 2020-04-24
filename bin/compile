@@ -14,8 +14,8 @@ if [[ ! -e "/app/xlsxio/xlsxio_xlsx2csv" ]] ; then
     make
   fi
   echo "-----> Copying XLSXIO to build directory."
-  mkdir "${BUILD_DIR}/app/xlsxio/"
-  cp "${CACHE_DIR}/xlsxio/xlsxio_xlsx2csv" "${BUILD_DIR}/app/xlsxio/"
+  mkdir "${BUILD_DIR}/xlsxio/"
+  cp "${CACHE_DIR}/xlsxio/xlsxio_xlsx2csv" "${BUILD_DIR}/xlsxio/"
 else
   echo "-----> XLSXIO installed, nothing to do here."
 fi
